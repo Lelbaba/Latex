@@ -16,15 +16,16 @@ void element_print(int i, int d) {
         cout << (dis[i] == d ? "[fill=green!30, " : "[fill=blue!30, ");
 
         cout << "as=";
-        if(dis[i] > d) cout << "\\scriptsize{$" << i << ", \\infty$}]";
-        else cout <<  "\\scriptsize{$" << i << ", " << dis[i] << "$}]";
+        if(dis[i] > d) cout << "\\tiny{$" << i << ", \\infty$}]";
+        else cout <<  "\\tiny{$" << i << ", " << dis[i] << "$}]";
     }
 }
 
 void print(int n, int d) {
     fill(vis, vis + n + 1, 0);
-    cout << "\\begin{tikzpicture}\n";
-    cout << "\\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=" << rnd <<"]{\n";
+    cout << "\\begin{minipage}{0.5\\textwidth}";
+    cout << "\\begin{tikzpicture}[scale = 1]\n";
+    cout << "\\graph [nodes={circle, draw}, node distance = 12mm, spring layout, random seed=" << rnd <<"]{\n";
     for (int i = 1; i <= n; i++) {
         cout << "    ";
         element_print(i, d);
@@ -41,7 +42,10 @@ void print(int n, int d) {
         if (done) cout << " }";
         cout << ";\n";
     }
-    cout << "};\n\\end{tikzpicture}\n\n";
+    cout << "};\n\\end{tikzpicture}\n";
+    cout << "\\caption{Depth $" << d << "$}\n";
+    cout << "\\end{minipage}";
+    
 }
 
 int main() {
@@ -49,8 +53,8 @@ int main() {
     cin >> n >> m >> s;
     cout << "\\usetikzlibrary{graphs, graphdrawing, "
             "graphs.standard}\n\\usegdlibrary {force}\n\n";
+    cout << "\\begin{figure}[H]";
     fill(dis, dis + n + 1, inf);
-
     for (int i = 0, u, v; i < m; i++) {
         cin >> u >> v;
         adj[u].push_back(v);
@@ -71,5 +75,12 @@ int main() {
             }
         }
     }
-    for (int i = 0; i <= mx; i++) print(n, i);
+    for (int i = 0; i <= mx; i++) {
+        print(n, i);
+        if(i & 1) {
+            cout << "\\end{figure}";
+            cout << "\\begin{figure}[H]";
+        }
+    }
+    cout << "\\end{figure}\n\n";
 }
