@@ -1,0 +1,73 @@
+\usetikzlibrary{graphs, graphdrawing, graphs.standard}
+\usegdlibrary {force}
+
+\begin{tikzpicture}
+\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=216]{
+    1[fill=green!30, as=\scriptsize{$1, 0$}] -- { 2[fill=blue!30, as=\scriptsize{$2, \infty$}], 3[fill=blue!30, as=\scriptsize{$3, \infty$}] };
+    2 -- { 3, 4[fill=blue!30, as=\scriptsize{$4, \infty$}] };
+    3 -- { 4, 5[fill=blue!30, as=\scriptsize{$5, \infty$}] };
+    4 -- { 7[fill=blue!30, as=\scriptsize{$7, \infty$}] };
+    5 -- { 7, 8[fill=blue!30, as=\scriptsize{$8, \infty$}] };
+    6[fill=blue!30, as=\scriptsize{$6, \infty$}];
+    7 -- { 9[fill=blue!30, as=\scriptsize{$9, \infty$}] };
+    8 -- { 9 };
+    9;
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=216]{
+    1[fill=blue!30, as=\scriptsize{$1, 0$}] -- { 2[fill=green!30, as=\scriptsize{$2, 1$}], 3[fill=green!30, as=\scriptsize{$3, 1$}] };
+    2 -- { 3, 4[fill=blue!30, as=\scriptsize{$4, \infty$}] };
+    3 -- { 4, 5[fill=blue!30, as=\scriptsize{$5, \infty$}] };
+    4 -- { 7[fill=blue!30, as=\scriptsize{$7, \infty$}] };
+    5 -- { 7, 8[fill=blue!30, as=\scriptsize{$8, \infty$}] };
+    6[fill=blue!30, as=\scriptsize{$6, \infty$}];
+    7 -- { 9[fill=blue!30, as=\scriptsize{$9, \infty$}] };
+    8 -- { 9 };
+    9;
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=216]{
+    1[fill=blue!30, as=\scriptsize{$1, 0$}] -- { 2[fill=blue!30, as=\scriptsize{$2, 1$}], 3[fill=blue!30, as=\scriptsize{$3, 1$}] };
+    2 -- { 3, 4[fill=green!30, as=\scriptsize{$4, 2$}] };
+    3 -- { 4, 5[fill=green!30, as=\scriptsize{$5, 2$}] };
+    4 -- { 7[fill=blue!30, as=\scriptsize{$7, \infty$}] };
+    5 -- { 7, 8[fill=blue!30, as=\scriptsize{$8, \infty$}] };
+    6[fill=blue!30, as=\scriptsize{$6, \infty$}];
+    7 -- { 9[fill=blue!30, as=\scriptsize{$9, \infty$}] };
+    8 -- { 9 };
+    9;
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=216]{
+    1[fill=blue!30, as=\scriptsize{$1, 0$}] -- { 2[fill=blue!30, as=\scriptsize{$2, 1$}], 3[fill=blue!30, as=\scriptsize{$3, 1$}] };
+    2 -- { 3, 4[fill=blue!30, as=\scriptsize{$4, 2$}] };
+    3 -- { 4, 5[fill=blue!30, as=\scriptsize{$5, 2$}] };
+    4 -- { 7[fill=green!30, as=\scriptsize{$7, 3$}] };
+    5 -- { 7, 8[fill=green!30, as=\scriptsize{$8, 3$}] };
+    6[fill=blue!30, as=\scriptsize{$6, \infty$}];
+    7 -- { 9[fill=blue!30, as=\scriptsize{$9, \infty$}] };
+    8 -- { 9 };
+    9;
+};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\graph [nodes={circle, draw}, node distance = 20mm, spring layout, random seed=216]{
+    1[fill=blue!30, as=\scriptsize{$1, 0$}] -- { 2[fill=blue!30, as=\scriptsize{$2, 1$}], 3[fill=blue!30, as=\scriptsize{$3, 1$}] };
+    2 -- { 3, 4[fill=blue!30, as=\scriptsize{$4, 2$}] };
+    3 -- { 4, 5[fill=blue!30, as=\scriptsize{$5, 2$}] };
+    4 -- { 7[fill=blue!30, as=\scriptsize{$7, 3$}] };
+    5 -- { 7, 8[fill=blue!30, as=\scriptsize{$8, 3$}] };
+    6[fill=blue!30, as=\scriptsize{$6, \infty$}];
+    7 -- { 9[fill=green!30, as=\scriptsize{$9, 4$}] };
+    8 -- { 9 };
+    9;
+};
+\end{tikzpicture}
+
